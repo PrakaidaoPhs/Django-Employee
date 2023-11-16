@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-3">
+    <h2>แสดงรายชื่อพนักงาน</h2>
+         
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>รูปภาพ</th>
+          <th>ชื่อ</th>
+          <th>นามสกุล</th>
+          <th>วันที่เข้าทำงาน</th>
+          <th>วันสิ้นสุดการทำงาน</th>
+          <th>ไอดีไลน์หรือเบอร์โทรศัพท์</th>
+          <th>ตำแหน่ง</th>
+          <th>เงินเดือน</th>
+          <th>สถานะ</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% for  i in  person %}
+        <tr>
+          <td><img src="{{ i.p_picture.url }}" alt="{{ i.p_firstname }} {{ i.p_lastname }}" width="100"></td>
+           <td>{{i.p_firstname}}</td>
+           <td>{{i.p_lastname}}</td>        
+           <td>{{i.p_startOfWork}}</td>
+           <td>{{i.p_endOfWork}}</td>
+           <td>{{i.p_idLine}}</td>
+           <td>{{i.p_position}}</td>
+           <td>{{i.p_salary}}</td>
+           <td>{{i.p_status}}</td>
+        </tr> 
+       {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
